@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import SpecificationsRepository from "../../repositories/SpecificationsRepository";
+import SpecificationsRepository from "../../repositories/implementations/SpecificationsRepository";
 
 export default class ListSpecificationsController {
   // eslint-disable-next-line prettier/prettier

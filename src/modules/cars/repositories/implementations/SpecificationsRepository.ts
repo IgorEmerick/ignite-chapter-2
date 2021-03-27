@@ -1,6 +1,6 @@
-import ICreateSpecificationDTO from "../dto/ICreateSpecificationDTO";
-import Specification from "../model/Specification";
-import ISpecificationsRepository from "./ISpecificationsRepository";
+import ICreateSpecificationDTO from "../../dto/ICreateSpecificationDTO";
+import Specification from "../../model/Specification";
+import ISpecificationsRepository from "../ISpecificationsRepository";
 
 export default class SpecificationsRepository
   implements ISpecificationsRepository {

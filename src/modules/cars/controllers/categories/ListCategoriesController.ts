@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import CategoriesRepository from "../../repositories/CategoriesRepository";
+import CategoriesRepository from "../../repositories/implementations/CategoriesRepository";
 
 export default class ListCategoriesController {
   // eslint-disable-next-line prettier/prettier
