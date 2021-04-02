@@ -1,13 +1,12 @@
 import ICreateSpecificationDTO from "../dto/ICreateSpecificationDTO";
-import Specification from "../model/Specification";
-import ISpecificationsRepository from "../repositories/ISpecificationsRepository";
+import Specification from "../entities/Specification";
+import SpecificationsRepository from "../repositories/implementations/SpecificationsRepository";
 
 export default class CreateSpecificationService {
-  // eslint-disable-next-line prettier/prettier
-  constructor(private specificationsRepository: ISpecificationsRepository) { }
+  private specificationsRepository = new SpecificationsRepository();
 
-  execute({ description, name }: ICreateSpecificationDTO): Specification {
-    const specificationAlreadyExists = this.specificationsRepository.findByName(
+  public async execute({ description, name }: ICreateSpecificationDTO): Promise<Specification> {
+    const specificationAlreadyExists = await this.specificationsRepository.findByName(
       name
     );
 
@@ -15,7 +14,7 @@ export default class CreateSpecificationService {
       throw new Error("This specification already exists!");
     }
 
-    const specification = this.specificationsRepository.create({
+    const specification = await this.specificationsRepository.create({
       name,
       description,
     });
