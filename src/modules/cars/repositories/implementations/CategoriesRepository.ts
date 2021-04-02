@@ -10,7 +10,8 @@ export default class CategoriesRepository implements ICategoriesRepository {
     this.categoriesRepository = getRepository(Category);
   }
 
-  public async create({ name, description }: ICreateCatedoryDTO): Promise<Category> {
+  public async create({ name, description }: ICreateCatedoryDTO):
+    Promise<Category> {
     const category = this.categoriesRepository.create({
       name,
       description,
