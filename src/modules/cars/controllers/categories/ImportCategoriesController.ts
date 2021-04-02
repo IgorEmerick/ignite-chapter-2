@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { container } from 'tsyringe';
 
-import { Category } from "../../../entities/Category";
-import ImportCategoriesService from "../../../services/categories/ImportCategoriesService";
+import { Category } from "../../entities/Category";
+import ImportCategoriesService from "../../services/categories/ImportCategoriesService";
 
 export default class ImportCategoriesController {
   public async handle(req: Request, res: Response): Promise<Response> {
