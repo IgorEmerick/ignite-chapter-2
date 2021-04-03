@@ -12,50 +12,24 @@
         "tags": [
           "Category"
         ],
-        "sumary": "Create a category",
+        "sumary": "Create category",
         "description": "Create a new non exists category",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
-                "example": {
-                  "name": "Category name sample",
-                  "description": "Category description sample"
-                }
+                "$ref": "#/definitions/Category"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Category created sucess",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/definitions/CategoryResponse"
                 }
               }
             }
@@ -70,31 +44,14 @@
           "Category"
         ],
         "sumary": "List categories",
-        "description": "List all categories created",
+        "description": "List all categories",
         "responses": {
           "200": {
             "description": "Returns a array with all categories",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      }
-                    }
-                  }
+                  "$ref": "#/definitions/CategoriesResponse"
                 }
               }
             }
@@ -108,46 +65,23 @@
           "Category"
         ],
         "sumary": "Create categories",
-        "description": "Create categories using a file.csv",
+        "description": "Upload a file.csv for create new non exists categories",
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "file": "file"
-                },
-                "example": {
-                  "file": "File.csv"
-                }
+                "$ref": "#/definitions/CategoriesImport"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Categories created",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      }
-                    }
-                  }
+                  "$ref": "#/definitions/CategoriesResponse"
                 }
               }
             }
@@ -160,53 +94,30 @@
         "tags": [
           "Specification"
         ],
-        "sumary": "Create specification",
-        "description": "Create a specification",
+        "sumary": "Create a specification",
+        "description": "Create a new non exists specification",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                },
-                "example": {
-                  "name": "Specification name sample",
-                  "description": "Specification description sample"
-                }
+                "$ref": "#/definitions/Specification"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Specification created",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/definitions/SpecificationResponse"
                 }
               }
             }
+          },
+          "500": {
+            "description": "Specification already exists"
           }
         }
       },
@@ -215,36 +126,113 @@
           "Specification"
         ],
         "sumary": "List specifications",
-        "description": "List all specifications created",
+        "description": "List all specifications",
         "responses": {
           "200": {
             "description": "Returns a array with all specifications",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "description": {
-                        "type": "string"
-                      },
-                      "created_at": {
-                        "type": "string"
-                      }
-                    }
-                  }
+                  "$ref": "#/definitions/SpecificationsResponse"
                 }
               }
             }
           }
         }
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of category who will be created"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of category who will be created"
+        }
+      }
+    },
+    "CategoryResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "UUID of category"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of category"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of category"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Creation's date of category"
+        }
+      }
+    },
+    "CategoriesResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CategoryResponse"
+      }
+    },
+    "CategoriesImport": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string",
+          "format": "binary"
+        }
+      },
+      "example": {
+        "file": "File.csv"
+      }
+    },
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of specification who will be created"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of specification who will be created"
+        }
+      }
+    },
+    "SpecificationResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "UUID of specification"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of specification"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of specification"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Creation's date of specification"
+        }
+      }
+    },
+    "SpecificationsResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SpecificationResponse"
       }
     }
   }
