@@ -140,6 +140,39 @@
           }
         }
       }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "sumary": "Create user",
+        "description": "Create a new non exists user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/UserResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "User already exists"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -233,6 +266,52 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/SpecificationResponse"
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "driver_license": {
+          "type": "string"
+        }
+      }
+    },
+    "UserResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "driver_license": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        }
       }
     }
   }
