@@ -33,4 +33,10 @@ export default class UsersRepository implements IUsersRepository {
 
     return user;
   }
+
+  public async findById(id: string): Promise<User | undefined> {
+    const user = await this.usersRepository.findOne({ id });
+
+    return user;
+  }
 }
