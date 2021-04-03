@@ -173,6 +173,39 @@
           }
         }
       }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "sumary": "Authenticate user",
+        "description": "Authenticate an user using email and password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#definitions/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#definitions/LoginResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Email or password incorrect"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -305,6 +338,32 @@
         },
         "created_at": {
           "type": "string"
+        }
+      }
+    },
+    "Login": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "LoginResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "description": "All requests done by this user will need use this token"
         }
       }
     }
