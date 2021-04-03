@@ -2,6 +2,7 @@ import { inject, injectable } from "tsyringe";
 import ICreateUserDTO from "../dto/ICreateUserDTO";
 import User from "../entities/User";
 import IUsersRepository from "../repositories/IUsersRepository";
+import { hash } from "bcrypt";
 
 @injectable()
 export default class CreateUserService {
@@ -22,11 +23,13 @@ export default class CreateUserService {
       throw new Error("User already exists");
     }
 
+    const passwordHash = await hash(password, 8);
+
     const user = await this.usersRepository.create({
       driver_license,
       email,
       name,
-      password,
+      password: passwordHash,
     });
 
     return user;
