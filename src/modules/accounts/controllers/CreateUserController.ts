@@ -9,7 +9,6 @@ export default class CreateUserController {
       email,
       name,
       password,
-      username,
     } = req.body;
     const createUserService = container.resolve(CreateUserService);
 
@@ -18,7 +17,6 @@ export default class CreateUserController {
       email,
       name,
       password,
-      username,
     });
 
     return res.status(201).json(user);

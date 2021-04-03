@@ -15,14 +15,12 @@ export default class UsersRepository implements IUsersRepository {
     email,
     name,
     password,
-    username,
   }: ICreateUserDTO): Promise<User> {
     const user = this.usersRepository.create({
       driver_license,
       email,
       name,
       password,
-      username,
     });
 
     await this.usersRepository.save(user);
@@ -30,8 +28,8 @@ export default class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  public async findByUsername(username: string): Promise<User | undefined> {
-    const user = await this.usersRepository.findOne({ username });
+  public async findByEmail(email: string): Promise<User | undefined> {
+    const user = await this.usersRepository.findOne({ email });
 
     return user;
   }
