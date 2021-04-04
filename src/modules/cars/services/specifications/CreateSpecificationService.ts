@@ -2,6 +2,7 @@ import ICreateSpecificationDTO from "../../dto/ICreateSpecificationDTO";
 import Specification from "../../entities/Specification";
 import SpecificationsRepository from "../../repositories/implementations/SpecificationsRepository";
 import { inject, injectable } from 'tsyringe';
+import AppError from "../../../../errors/AppError";
 
 @injectable()
 export default class CreateSpecificationService {
@@ -18,7 +19,7 @@ export default class CreateSpecificationService {
       );
 
     if (specificationAlreadyExists) {
-      throw new Error("This specification already exists!");
+      throw new AppError("This specification already exists!");
     }
 
     const specification = await this.specificationsRepository.create({

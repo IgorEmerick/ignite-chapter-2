@@ -2,6 +2,7 @@ import ICreateCatedoryDTO from "../../dto/ICreateCategoryDTO";
 import { Category } from "../../entities/Category";
 import ICategoriesRepository from "../../repositories/ICategoriesRepository";
 import { inject, injectable } from 'tsyringe'
+import AppError from "../../../../errors/AppError";
 
 @injectable()
 export default class CreateCategoryService {
@@ -14,7 +15,7 @@ export default class CreateCategoryService {
     const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
 
     if (categoryAlreadyExists) {
-      throw new Error("This category already exists!;");
+      throw new AppError("This category already exists!");
     }
 
     const category = await this.categoriesRepository.create({ description, name });
