@@ -1,5 +1,6 @@
 import { getRepository, Repository } from "typeorm";
 import ICreateUserDTO from "../../dto/ICreateUserDTO";
+import IUpdateAvatarDTO from "../../dto/IUpdateAvatarDTO";
 import User from "../../entities/User";
 import IUsersRepository from "../IUsersRepository";
 
@@ -38,5 +39,12 @@ export default class UsersRepository implements IUsersRepository {
     const user = await this.usersRepository.findOne({ id });
 
     return user;
+  }
+
+  public async updateAvatar({
+    avatarFile,
+    userId,
+  }: IUpdateAvatarDTO): Promise<void> {
+    await this.usersRepository.update({ id: userId }, { avatar: avatarFile });
   }
 }

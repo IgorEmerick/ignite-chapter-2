@@ -28,11 +28,18 @@ export default async function ensureAuthenticated(
     ) as IPayload;
     const findUserService = container.resolve(FindUserService);
 
-    const user = findUserService.execute(user_id);
+    const user = await findUserService.execute(user_id);
 
     if (!user) {
       throw new AppError("User doesn't exists!", 401);
     }
+
+    console.log(req.user);
+    console.log(user_id);
+    req.user = {
+      id: user_id
+    };
+    console.log(req.user);
 
     next();
   } catch {
