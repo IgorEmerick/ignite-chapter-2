@@ -1,14 +1,14 @@
 import ICreateSpecificationDTO from "../../dto/ICreateSpecificationDTO";
 import Specification from "../../entities/Specification";
-import SpecificationsRepository from "../../repositories/implementations/SpecificationsRepository";
 import { inject, injectable } from 'tsyringe';
 import AppError from "../../../../errors/AppError";
+import ISpecificationsRepository from "../../repositories/ISpecificationsRepository";
 
 @injectable()
 export default class CreateSpecificationService {
   constructor(
     @inject('SpecificationsRepository')
-    private specificationsRepository: SpecificationsRepository
+    private specificationsRepository: ISpecificationsRepository
   ) { }
 
   public async execute({ description, name }: ICreateSpecificationDTO):
