@@ -3,6 +3,7 @@ import Car from "../../modules/cars/entities/Car";
 import FakeCarsRepository from "../../modules/cars/repositories/fakes/FakeCarsRepository";
 import ICarsRepository from "../../modules/cars/repositories/ICarsRepository";
 import CreateCarService from "../../modules/cars/services/cars/CreateCarService"
+import AppError from "../../shared/errors/AppError";
 
 let createCarService: CreateCarService;
 let carsRepository: ICarsRepository;
@@ -26,4 +27,28 @@ describe("create car service", () => {
 
     expect(car).toBeInstanceOf(Car);
   });
+
+  it("Should not be able to create two cars with same license plate", async () => {
+    expect(async () => {
+      const car = await createCarService.execute({
+        brand: "brand",
+        category_id: "category",
+        daily_rate: 100,
+        description: "Description car",
+        fine_amount: 60,
+        license_plate: "1234",
+        name: "Name car",
+      });
+
+      const sameCar = await createCarService.execute({
+        brand: "brand",
+        category_id: "category",
+        daily_rate: 100,
+        description: "Description car",
+        fine_amount: 60,
+        license_plate: "1234",
+        name: "Name car",
+      });
+    }).rejects.toBeInstanceOf(AppError);
+  })
 });

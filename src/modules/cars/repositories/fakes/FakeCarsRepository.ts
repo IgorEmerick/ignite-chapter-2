@@ -30,4 +30,13 @@ export default class FakeCarsRepository implements ICarsRepository {
 
     return car;
   }
+
+  public async findByLicensePlate(license_plate: string):
+    Promise<Car | undefined> {
+    const car = this.repository.find(
+      foundCar => foundCar.license_plate === license_plate
+    );
+
+    return car;
+  }
 }
