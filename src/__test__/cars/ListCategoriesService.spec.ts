@@ -1,7 +1,6 @@
-import { Category } from "../modules/cars/entities/Category";
-import FakeCategoriesRepository from "../modules/cars/repositories/fakes/FakeCategoriesRepository";
-import ICategoriesRepository from "../modules/cars/repositories/ICategoriesRepository";
-import ListCategoriesService from "../modules/cars/services/categories/ListCategoriesService";
+import FakeCategoriesRepository from "../../modules/cars/repositories/fakes/FakeCategoriesRepository";
+import ICategoriesRepository from "../../modules/cars/repositories/ICategoriesRepository";
+import ListCategoriesService from "../../modules/cars/services/categories/ListCategoriesService";
 
 let categoriesRepository: ICategoriesRepository;
 let listCategoriesService: ListCategoriesService;

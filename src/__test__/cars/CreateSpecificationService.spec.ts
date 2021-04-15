@@ -1,8 +1,8 @@
-import AppError from "../errors/AppError";
-import Specification from "../modules/cars/entities/Specification";
-import FakeSpecificationsRepository from "../modules/cars/repositories/fakes/FakeSpecificationsRepository";
-import ISpecificationsRepository from "../modules/cars/repositories/ISpecificationsRepository";
-import CreateSpecificationService from "../modules/cars/services/specifications/CreateSpecificationService";
+import AppError from "../../shared/errors/AppError";
+import Specification from "../../modules/cars/entities/Specification";
+import FakeSpecificationsRepository from "../../modules/cars/repositories/fakes/FakeSpecificationsRepository";
+import ISpecificationsRepository from "../../modules/cars/repositories/ISpecificationsRepository";
+import CreateSpecificationService from "../../modules/cars/services/specifications/CreateSpecificationService";
 
 let specificationsRepository: ISpecificationsRepository;
 let createSpecificationService: CreateSpecificationService;

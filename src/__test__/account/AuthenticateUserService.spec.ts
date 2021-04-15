@@ -1,8 +1,8 @@
-import FakeUsersRepository from "../modules/accounts/repositories/fakes/FakeUsersRepository";
-import IUsersRepository from "../modules/accounts/repositories/IUsersRepository";
-import AuthenticateUserService from "../modules/accounts/services/AuthenticateUserService";
-import CreateUserService from "../modules/accounts/services/CreateUserService";
-import AppError from "../errors/AppError";
+import FakeUsersRepository from "../../modules/accounts/repositories/fakes/FakeUsersRepository";
+import IUsersRepository from "../../modules/accounts/repositories/IUsersRepository";
+import AuthenticateUserService from "../../modules/accounts/services/AuthenticateUserService";
+import CreateUserService from "../../modules/accounts/services/CreateUserService";
+import AppError from "../../shared/errors/AppError";
 
 let usersRepository: IUsersRepository;
 let authenticateUserService: AuthenticateUserService;

@@ -4,7 +4,7 @@ import IUsersRepository from "../repositories/IUsersRepository";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import IAuthenticatedUserDTO from "../dto/IAuthenticatedUserDTO";
-import AppError from "../../../errors/AppError";
+import AppError from "../../../shared/errors/AppError";
 
 @injectable()
 export default class AuthenticateUserService {
