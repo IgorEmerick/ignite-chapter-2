@@ -4,8 +4,11 @@ import ICreateCarDTO from "../../dto/ICreateCarDTO";
 import Car from "../../entities/Car";
 import ICarsRepository from "../../repositories/ICarsRepository";
 
+
+@injectable()
 export default class CreateCarService {
   constructor(
+    @inject("CarsRepository")
     private carsRepository: ICarsRepository
   ) { }
 
