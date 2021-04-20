@@ -1,6 +1,6 @@
 import ICreateUserDTO from "../../dto/ICreateUserDTO";
 import IUpdateAvatarDTO from "../../dto/IUpdateAvatarDTO";
-import User from "../../entities/User";
+import User from "../../infra/typeorm/entities/User";
 import IUsersRepository from "../IUsersRepository";
 
 export default class FakeUsersRepository implements IUsersRepository {

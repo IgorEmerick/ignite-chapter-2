@@ -1,5 +1,5 @@
 import ICreateCarDTO from "../../dto/ICreateCarDTO";
-import Car from "../../entities/Car";
+import Car from "../../infra/typeorm/entities/Car";
 import ICarsRepository from "../ICarsRepository";
 
 export default class FakeCarsRepository implements ICarsRepository {

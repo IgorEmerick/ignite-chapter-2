@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { container } from "tsyringe";
-import AppError from "../shared/errors/AppError";
-import FindUserService from "../modules/accounts/services/FindUserService";
+import AppError from "../../../errors/AppError";
+import FindUserService from "../../../../modules/accounts/services/FindUserService";
 
 interface IPayload {
   sub: string;

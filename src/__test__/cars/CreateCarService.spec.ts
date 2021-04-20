@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import Car from "../../modules/cars/entities/Car";
+import Car from "../../modules/cars/infra/typeorm/entities/Car";
 import FakeCarsRepository from "../../modules/cars/repositories/fakes/FakeCarsRepository";
 import ICarsRepository from "../../modules/cars/repositories/ICarsRepository";
 import CreateCarService from "../../modules/cars/services/cars/CreateCarService"

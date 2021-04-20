@@ -1,4 +1,4 @@
-import ICreateSpecificationDTO from "../dto/ICreateSpecificationDTO";
+import ICreateSpecificationDTO from "../../../dto/ICreateSpecificationDTO";
 import Specification from "../entities/Specification";
 
 export default interface ISpecificationsRepository {

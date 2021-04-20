@@ -2,7 +2,7 @@ import csvParse from "csv-parse";
 import fs from "fs";
 import { injectable, container } from 'tsyringe';
 
-import { Category } from "../../entities/Category";
+import { Category } from "../../infra/typeorm/entities/Category";
 import CreateCategoryService from "./CreateCategoryService";
 
 @injectable()

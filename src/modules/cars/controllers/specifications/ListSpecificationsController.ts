@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import SpecificationsRepository from "../../repositories/implementations/SpecificationsRepository";
+import SpecificationsRepository from "../../infra/typeorm/repositories/SpecificationsRepository";
 import { container } from 'tsyringe';
 
 export default class ListSpecificationsController {

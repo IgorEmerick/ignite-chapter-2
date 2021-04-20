@@ -1,5 +1,5 @@
 import AppError from "../../shared/errors/AppError";
-import { Category } from "../../modules/cars/entities/Category";
+import { Category } from "../../modules/cars/infra/typeorm/entities/Category";
 import FakeCategoriesRepository from "../../modules/cars/repositories/fakes/FakeCategoriesRepository";
 import ICategoriesRepository from "../../modules/cars/repositories/ICategoriesRepository";
 import CreateCategoryService from "../../modules/cars/services/categories/CreateCategoryService";

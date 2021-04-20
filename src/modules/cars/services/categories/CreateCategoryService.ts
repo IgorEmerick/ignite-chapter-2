@@ -1,5 +1,5 @@
 import ICreateCatedoryDTO from "../../dto/ICreateCategoryDTO";
-import { Category } from "../../entities/Category";
+import { Category } from "../../infra/typeorm/entities/Category";
 import ICategoriesRepository from "../../repositories/ICategoriesRepository";
 import { inject, injectable } from 'tsyringe'
 import AppError from "../../../../shared/errors/AppError";

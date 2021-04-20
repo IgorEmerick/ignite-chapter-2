@@ -1,5 +1,5 @@
 import ICreateSpecificationDTO from "../../dto/ICreateSpecificationDTO";
-import Specification from "../../entities/Specification";
+import Specification from "../../infra/typeorm/entities/Specification";
 import { inject, injectable } from 'tsyringe';
 import AppError from "../../../../shared/errors/AppError";
 import ISpecificationsRepository from "../../repositories/ISpecificationsRepository";

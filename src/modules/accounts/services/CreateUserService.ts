@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import ICreateUserDTO from "../dto/ICreateUserDTO";
-import User from "../entities/User";
+import User from "../infra/typeorm/entities/User";
 import IUsersRepository from "../repositories/IUsersRepository";
 import { hash } from "bcrypt";
 import AppError from "../../../shared/errors/AppError";

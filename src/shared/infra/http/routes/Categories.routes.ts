@@ -1,9 +1,9 @@
 import { Router } from "express";
 import multer from "multer";
 import ensureAuthenticated from "../middlewares/ensureAuthenticated";
-import CreateCategoryController from "../modules/cars/controllers/categories/CreateCategoryController";
-import ImportCategoriesController from "../modules/cars/controllers/categories/ImportCategoriesController";
-import ListCategoriesController from "../modules/cars/controllers/categories/ListCategoriesController";
+import CreateCategoryController from "../../../../modules/cars/controllers/categories/CreateCategoryController";
+import ImportCategoriesController from "../../../../modules/cars/controllers/categories/ImportCategoriesController";
+import ListCategoriesController from "../../../../modules/cars/controllers/categories/ListCategoriesController";
 
 const categoriesRoutes = Router();
 
