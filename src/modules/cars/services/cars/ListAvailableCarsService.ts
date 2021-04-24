@@ -1,9 +1,10 @@
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 import IListCarsDTO from "../../dto/IListCarsDTO";
 import Car from "../../infra/typeorm/entities/Car";
 import ICarsRepository from "../../repositories/ICarsRepository";
 
-export default class ListCarsService {
+@injectable()
+export default class ListAvailableCarsService {
   constructor(
     @inject("CarsRepository")
     private carsRepository: ICarsRepository

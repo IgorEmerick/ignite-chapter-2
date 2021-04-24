@@ -1,15 +1,15 @@
 import Car from "../../modules/cars/infra/typeorm/entities/Car";
 import FakeCarsRepository from "../../modules/cars/repositories/fakes/FakeCarsRepository";
 import ICarsRepository from "../../modules/cars/repositories/ICarsRepository";
-import ListCarsService from "../../modules/cars/services/cars/ListCarsService";
+import ListAvailableCarsService from "../../modules/cars/services/cars/ListAvailableCarsService";
 
 let carsRepository: ICarsRepository;
-let listCarsService: ListCarsService;
+let listCarsService: ListAvailableCarsService;
 
 describe("List cars service", () => {
   beforeEach(async () => {
     carsRepository = new FakeCarsRepository();
-    listCarsService = new ListCarsService(carsRepository);
+    listCarsService = new ListAvailableCarsService(carsRepository);
   });
 
   it("Should be able to list all avalilable cars", async () => {
