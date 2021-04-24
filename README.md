@@ -7,7 +7,7 @@
 **Regra de negócio**
 - [x] Não deve ser possível cadastrar um carro com uma placa já existente.
 - [x] O carro deve ser cadastrado como disponível por padrão.
-- [ ] O usuário responsável pelo cadastro deve ser um usuário administrador.
+- [x] O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 
 # Listagem de carros
