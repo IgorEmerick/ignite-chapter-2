@@ -1,6 +1,7 @@
 import ICreateCarDTO from "../../dto/ICreateCarDTO";
 import IListCarsDTO from "../../dto/IListCarsDTO";
 import Car from "../../infra/typeorm/entities/Car";
+import Specification from "../../infra/typeorm/entities/Specification";
 import ICarsRepository from "../ICarsRepository";
 
 export default class FakeCarsRepository implements ICarsRepository {
@@ -53,5 +54,20 @@ export default class FakeCarsRepository implements ICarsRepository {
       .filter(car => name ? car.name === name : true);
 
     return cars;
+  }
+
+  public async findById(id: string): Promise<Car | undefined> {
+    const car = this.repository.find(foundCar => foundCar.id === id);
+
+    return car;
+  }
+
+  public async updateSpecifications(id: string, specifications: Specification[]):
+    Promise<Car> {
+    const car = this.repository.find(foundCar => foundCar.id === id);
+
+    car.specifications = specifications;
+
+    return car;
   }
 }

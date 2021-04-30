@@ -28,8 +28,16 @@ export default class FakeSpecificationsRepository implements
 
     return specification;
   }
+
   public async list(): Promise<Specification[]> {
     return this.specificationsRepository;
   }
 
+  public async findByIds(ids: string[]): Promise<Specification[]> {
+    const foundSpecifications = this.specificationsRepository.filter(
+      specification => ids.includes(specification.id)
+    );
+
+    return foundSpecifications;
+  }
 }
