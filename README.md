@@ -25,13 +25,13 @@
 # Cadastro de especificação no carro
 
 **Requisitos funcionais**
-- [ ] Deve ser possível cadastrar uma especificação para um carro.
+- [x] Deve ser possível cadastrar uma especificação para um carro.
 - [ ] Deve ser possível listar todas as especificações.
 - [ ] Deve ser possível listar todos os carros.
 
 **Regra de negócio**
-- [ ] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-- [ ] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
+- [x] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
+- [x] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
 - [ ] O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 

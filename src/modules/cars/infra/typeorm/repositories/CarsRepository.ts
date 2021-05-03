@@ -3,7 +3,6 @@ import ICreateCarDTO from "../../../dto/ICreateCarDTO";
 import Car from "../entities/Car";
 import ICarsRepository from "../../../repositories/ICarsRepository";
 import IListCarsDTO from "../../../dto/IListCarsDTO";
-import Specification from "../entities/Specification";
 
 export default class CarsRepository implements ICarsRepository {
   private repository: Repository<Car>;
@@ -75,12 +74,10 @@ export default class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  public async updateSpecifications(id: string, specifications: Specification[]):
+  public async updateSpecifications(car: Car):
     Promise<Car> {
-    await this.repository.update(id, { specifications });
+    const updatedCar = await this.repository.save(car);
 
-    const car = await this.repository.findOne(id);
-
-    return car;
+    return updatedCar;
   }
 }

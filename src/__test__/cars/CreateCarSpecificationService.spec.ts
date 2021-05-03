@@ -59,4 +59,31 @@ describe("Create car specification", () => {
 
     expect(finalCar.specifications).toHaveLength(2);
   });
+
+  it(
+    "Should not be able to add a new specification if specification doesn't exists",
+    async () => {
+      const car = await carsRepository.create({
+        brand: "Brand",
+        category_id: "category1",
+        daily_rate: 100,
+        description: "Car description",
+        fine_amount: 140,
+        license_plate: "1234",
+        name: "Car",
+      });
+
+      const specification1 = await specificationsRepository.create({
+        description: "Description of specification test 1",
+        name: "Specification test 1",
+      });
+
+      const finalCar = await createCarSpecificationsService.execute({
+        car_id: car.id,
+        specifications_id: [specification1.id, "specification2"],
+      });
+
+      expect(finalCar.specifications).toHaveLength(1);
+    }
+  );
 });

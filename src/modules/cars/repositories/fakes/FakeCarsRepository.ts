@@ -1,5 +1,6 @@
 import ICreateCarDTO from "../../dto/ICreateCarDTO";
 import IListCarsDTO from "../../dto/IListCarsDTO";
+import IUpdateCarSpecificationsDTO from "../../dto/IUpdateCarSpecificationsDTO";
 import Car from "../../infra/typeorm/entities/Car";
 import Specification from "../../infra/typeorm/entities/Specification";
 import ICarsRepository from "../ICarsRepository";
@@ -62,7 +63,10 @@ export default class FakeCarsRepository implements ICarsRepository {
     return car;
   }
 
-  public async updateSpecifications(id: string, specifications: Specification[]):
+  public async updateSpecifications({
+    id,
+    specifications,
+  }: IUpdateCarSpecificationsDTO):
     Promise<Car> {
     const car = this.repository.find(foundCar => foundCar.id === id);
 
