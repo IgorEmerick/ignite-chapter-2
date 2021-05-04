@@ -32,14 +32,13 @@
 **Regra de negócio**
 - [x] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
 - [x] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-- [ ] O usuário responsável pelo cadastro deve ser um usuário administrador.
+- [x] O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 
 # Cadastro de imagens do carro
 
 **Requisitos funcionais**
 - [ ] Deve ser possível cadastrar a imagem do carro.
-- [ ] Deve ser possível listar todos os carros.
 
 **Requisitos não funcionais**
 - [ ] Utilizar o multer para upload de arquivos.
