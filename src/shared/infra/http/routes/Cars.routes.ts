@@ -25,6 +25,12 @@ carsRoutes.post(
   ensureAdmin,
   createCarSpecificationsController.handle
 );
-carsRoutes.post("/images/:car_id", upload.array("images"), uploadCarImagesController.handle);
+carsRoutes.post(
+  "/images/:car_id",
+  ensureAuthenticated,
+  ensureAdmin,
+  upload.array("images"),
+  uploadCarImagesController.handle
+);
 
 export default carsRoutes;
