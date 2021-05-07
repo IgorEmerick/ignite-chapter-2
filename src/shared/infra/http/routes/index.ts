@@ -3,6 +3,7 @@ import authenticateRoutes from "./Authenticate.routes";
 import carsRoutes from "./Cars.routes";
 
 import categoriesRoutes from "./Categories.routes";
+import rentalsRoutes from "./Rentals.routes";
 import specificationsRoutes from "./Specifications.routes";
 import usersRoutes from "./Users.routes";
 
@@ -13,5 +14,6 @@ router.use("/specifications", specificationsRoutes);
 router.use("/users", usersRoutes);
 router.use("/cars", carsRoutes);
 router.use(authenticateRoutes);
+router.use("/rentals", rentalsRoutes);
 
 export default router;
