@@ -74,7 +74,7 @@ export default class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  public async updateSpecifications(car: Car):
+  public async update(car: Car):
     Promise<Car> {
     const updatedCar = await this.repository.save(car);
 

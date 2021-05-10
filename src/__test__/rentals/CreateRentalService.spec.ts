@@ -86,7 +86,7 @@ describe("Create rental", () => {
 
         car.available = false;
 
-        await fakeCarsRepository.updateSpecifications(car);
+        await fakeCarsRepository.update(car);
 
         await createRentalService.execute({
           car_id: car.id,

@@ -7,5 +7,5 @@ export default interface ICarsRepository {
   findByLicensePlate(license_plate: string): Promise<Car | undefined>;
   listAvailable(request: IListCarsDTO): Promise<Car[]>;
   findById(id: string): Promise<Car | undefined>;
-  updateSpecifications(car: Car): Promise<Car>;
+  update(car: Car): Promise<Car>;
 }

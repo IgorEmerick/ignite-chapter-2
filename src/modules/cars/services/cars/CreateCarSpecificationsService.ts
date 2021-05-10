@@ -50,7 +50,7 @@ export default class CreateCarSpecificationsService {
 
     carExists.specifications = specifications;
 
-    const car = await this.carsRepository.updateSpecifications(carExists);
+    const car = await this.carsRepository.update(carExists);
 
     return car;
   }

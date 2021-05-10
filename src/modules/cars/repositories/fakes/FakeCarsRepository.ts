@@ -61,7 +61,7 @@ export default class FakeCarsRepository implements ICarsRepository {
     return car;
   }
 
-  public async updateSpecifications(car: Car):
+  public async update(car: Car):
     Promise<Car> {
     const oldCar = this.repository.find(foundCar => foundCar.id === car.id);
 

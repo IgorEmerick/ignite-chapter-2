@@ -59,7 +59,7 @@ export default class CreateRentalService {
 
     car.available = false;
 
-    await this.carsRepository.updateSpecifications(car);
+    await this.carsRepository.update(car);
 
     return rental;
   }
