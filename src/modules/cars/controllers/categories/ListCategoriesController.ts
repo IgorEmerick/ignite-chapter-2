@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { container, inject } from 'tsyringe';
-import ICategoriesRepository from "../../infra/typeorm/repositories/ICategoriesRepository";
+import { container } from 'tsyringe';
 import ListCategoriesService from "../../services/categories/ListCategoriesService";
 
 export default class ListCategoriesController {

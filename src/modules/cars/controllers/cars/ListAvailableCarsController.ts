@@ -5,7 +5,9 @@ import ListAvailableCarsService from "../../services/cars/ListAvailableCarsServi
 export default class ListAvailableCarsController {
   public async handle(req: Request, res: Response): Promise<Response> {
     const { brand, category_id, name, } = req.query;
-    const listAvailableCarsService = container.resolve(ListAvailableCarsService);
+    const listAvailableCarsService = container.resolve(
+      ListAvailableCarsService
+    );
 
     const cars = await listAvailableCarsService.execute({
       brand: brand as string,

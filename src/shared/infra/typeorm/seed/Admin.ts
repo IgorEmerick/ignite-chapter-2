@@ -1,8 +1,6 @@
 import { v4 as uuidV4 } from "uuid";
 import { hash } from "bcrypt";
 import createConnection from "../";
-import { getRepository, Repository } from "typeorm";
-import User from "../../../../modules/accounts/infra/typeorm/entities/User";
 
 createConnection();
 
