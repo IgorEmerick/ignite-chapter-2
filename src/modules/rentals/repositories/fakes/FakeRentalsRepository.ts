@@ -12,15 +12,12 @@ export default class FakeRentalsRepository implements IRentalsRepository {
   }: ICreateRentalDTO): Promise<Rental | undefined> {
     const rental = new Rental();
 
-    Object.assign(
-      rental,
-      {
-        car_id,
-        expected_return_date,
-        user_id,
-        start_date: new Date(),
-      }
-    )
+    Object.assign(rental, {
+      car_id,
+      expected_return_date,
+      user_id,
+      start_date: new Date(),
+    });
 
     this.repository.push(rental);
 
@@ -28,10 +25,20 @@ export default class FakeRentalsRepository implements IRentalsRepository {
   }
 
   public async findOpenRentalByUserId(id: string): Promise<Rental | undefined> {
-    const openRental = this.repository.find(rental => {
-      return (rental.user_id === id && rental.end_date === null);
+    const openRental = this.repository.find((rental) => {
+      return rental.user_id === id && rental.end_date === null;
     });
 
     return openRental;
+  }
+
+  public async update(rental: Rental): Promise<Rental> {
+    let oldRental = this.repository.find(
+      (oldRental) => oldRental.id === rental.id
+    );
+
+    oldRental = rental;
+
+    return oldRental;
   }
 }

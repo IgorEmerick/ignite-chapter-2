@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+
 import AppError from "../../../shared/errors/AppError";
 import IDateProvider from "../../../shared/providers/dateProvider/IDateProvider";
 import ICarsRepository from "../../cars/repositories/ICarsRepository";
@@ -16,8 +17,8 @@ export default class CreateRentalService {
     private carsRepository: ICarsRepository,
 
     @inject("DayjsDateProvider")
-    private dateProvider: IDateProvider,
-  ) { }
+    private dateProvider: IDateProvider
+  ) {}
 
   public async execute({
     car_id,
@@ -32,9 +33,8 @@ export default class CreateRentalService {
       throw new AppError("Car unavailable!");
     }
 
-    const openRentalToUser = await this.rentalsRepository.findOpenRentalByUserId(
-      user_id
-    );
+    const openRentalToUser =
+      await this.rentalsRepository.findOpenRentalByUserId(user_id);
 
     if (openRentalToUser) {
       throw new AppError("User already have an open rental!");

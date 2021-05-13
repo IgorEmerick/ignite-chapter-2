@@ -1,7 +1,7 @@
 import { Router } from "express";
+
 import authenticateRoutes from "./Authenticate.routes";
 import carsRoutes from "./Cars.routes";
-
 import categoriesRoutes from "./Categories.routes";
 import rentalsRoutes from "./Rentals.routes";
 import specificationsRoutes from "./Specifications.routes";
