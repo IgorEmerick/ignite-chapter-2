@@ -37,6 +37,8 @@ export default class DevolutionRentalService {
       rental.expected_return_date
     );
 
+    console.log(expectedTime);
+
     const dateNow = new Date();
 
     const exceededTime = await this.dateProvider.compareInDays(

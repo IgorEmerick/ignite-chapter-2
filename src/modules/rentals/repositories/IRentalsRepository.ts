@@ -6,4 +6,5 @@ export default interface IRentalsRepository {
   findOpenRentalByUserId(id: string): Promise<Rental | undefined>;
   update(rental: Rental): Promise<Rental>;
   findById(id: string): Promise<Rental | undefined>;
+  findByUserId(user_id: string): Promise<Rental[]>;
 }

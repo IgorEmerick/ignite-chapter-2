@@ -46,4 +46,10 @@ export default class RentalsRepository implements IRentalsRepository {
 
     return rental;
   }
+
+  public async findByUserId(user_id: string): Promise<Rental[]> {
+    const rentals = await this.repository.find({ user_id });
+
+    return rentals;
+  }
 }
