@@ -1,17 +1,23 @@
-import { inject, injectable } from "tsyringe";
-import IAuthenticateUserDTO from "../dto/IAuthenticateUserDTO";
-import IUsersRepository from "../repositories/IUsersRepository";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import IAuthenticatedUserDTO from "../dto/IAuthenticatedUserDTO";
+import { inject, injectable } from "tsyringe";
+
+import Auth from "../../../config/Auth";
 import AppError from "../../../shared/errors/AppError";
+import IAuthenticatedUserDTO from "../dto/IAuthenticatedUserDTO";
+import IAuthenticateUserDTO from "../dto/IAuthenticateUserDTO";
+import IUsersRepository from "../repositories/IUsersRepository";
+import IUserTokensRepository from "../repositories/IUserTokensRepository";
 
 @injectable()
 export default class AuthenticateUserService {
   constructor(
-    @inject('UsersRepository')
-    private usersRepository: IUsersRepository
-  ) { }
+    @inject("UsersRepository")
+    private usersRepository: IUsersRepository,
+
+    @inject("UserTokensRepository")
+    private userTokensRepository: IUserTokensRepository
+  ) {}
 
   public async execute({
     email,
@@ -29,16 +35,28 @@ export default class AuthenticateUserService {
       throw new AppError("Email or password incorrect!");
     }
 
-    const token = sign({}, "46d470c6f82da5849f2273c0ab982ed3", {
+    const token = sign({}, Auth.secret_token, {
       subject: user.id,
-      expiresIn: "1d"
+      expiresIn: Auth.expires_in_token,
+    });
+
+    const refreshToken = sign({ email }, Auth.secret_refresh_token, {
+      subject: user.id,
+      expiresIn: Auth.expires_in_refresh_token,
+    });
+
+    await this.userTokensRepository.create({
+      expires_date: new Date(new Date().getTime() + 2592000000),
+      refresh_token: refreshToken,
+      user_id: user.id,
     });
 
     const authenticatedUser: IAuthenticatedUserDTO = {
       name: user.name,
       email: user.email,
-      token
-    }
+      token,
+      refresh_token: refreshToken,
+    };
 
     return authenticatedUser;
   }

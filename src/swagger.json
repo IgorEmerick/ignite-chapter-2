@@ -14,6 +14,11 @@
         ],
         "sumary": "Create category",
         "description": "Create a new non exists category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -365,6 +370,15 @@
           "type": "string",
           "description": "All requests done by this user will need use this token"
         }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
