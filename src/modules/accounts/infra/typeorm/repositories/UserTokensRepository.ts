@@ -26,4 +26,14 @@ export default class UserTokensRepository implements IUserTokensRepository {
 
     return userToken;
   }
+
+  public async findByRefreshToken(refresh_token: string): Promise<UserToken> {
+    const userToken = await this.repository.findOne({ refresh_token });
+
+    return userToken;
+  }
+
+  public async deleteById(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
 }

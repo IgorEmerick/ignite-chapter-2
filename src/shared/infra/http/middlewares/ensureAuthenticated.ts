@@ -1,8 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { container } from "tsyringe";
-import AppError from "../../../errors/AppError";
+
 import FindUserService from "../../../../modules/accounts/services/FindUserService";
+import AppError from "../../../errors/AppError";
 
 interface IPayload {
   sub: string;
@@ -11,7 +12,7 @@ interface IPayload {
 export default async function ensureAuthenticated(
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) {
   const authHeader = req.headers.authorization;
 
@@ -37,7 +38,7 @@ export default async function ensureAuthenticated(
     console.log(req.user);
     console.log(user_id);
     req.user = {
-      id: user_id
+      id: user_id,
     };
     console.log(req.user);
 

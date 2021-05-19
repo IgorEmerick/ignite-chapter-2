@@ -72,3 +72,15 @@
 - [x] Caso o horário de devolução seja superior ao horário previsto de entrega, deverá ser cobrada multa proporcional aos dias de atraso
 - [x] Caso haja multa, deverá ser somada ao total do aluguel
 - [x] O usuário deve estar logado na aplicação
+
+
+# Recuperar senha
+
+**Requisitos funcionais**
+- [ ] Deve ser possível recuperar a senha do usuário informando o email
+- [ ] O usuário deve receber um email com o passo a passo para a recuperação de senha
+- [ ] O usuário deve conseguir inserir uma nova senha
+
+**Regra de negócio**
+- [ ] O usuário precisa informar uma nova senha
+- [ ] o link enviado para a recuperação deve expirar em 3 horas
