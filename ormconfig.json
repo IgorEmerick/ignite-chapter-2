@@ -4,7 +4,7 @@
   "host": "localhost",
   "username": "postgres",
   "password": "docker",
-  "database": "database_ignite_app",
+  "database": "ignite",
   "migrations": [
     "./src/shared/infra/typeorm/migrations/*.ts"
   ],
